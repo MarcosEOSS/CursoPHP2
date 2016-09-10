@@ -55,13 +55,12 @@ do{
 	
 
 	for($i = 0, $num = readline(); $i <= $num; $i ++ ){
-		$mod1 = $num % 1 ;
-		$mod2 = $num % $i;
-		if($mod1 == 0){
-			if($mod2 == 0 ){
-				echo "$i\n";
-			}
+		$mod2 = $num % $num;
+		
+		if($mod2 == 0 ){
+			echo "$i \n";
 		}
+		
 
 	}
 
