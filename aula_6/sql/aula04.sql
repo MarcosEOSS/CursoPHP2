@@ -1,0 +1,24 @@
+
+
+DROP DATABASE Aula04;
+
+CREATE DATABASE Aula04;
+
+USE Aula04;
+
+CREATE TABLE usuarios(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	senha VARCHAR(100) NOT NULL
+
+);
+
+CREATE TABLE log_logins(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ usuario_id INT,
+ login_data TIMESTAMP,
+ acao VARCHAR(100) NOT NULL,
+ 
+ FOREIGN KEY (usuario_id) REFERENCES usuarios(id)  
+); 
