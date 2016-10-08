@@ -1,9 +1,11 @@
 <?php
 	require 'settings.php';
+	require_once "db_mysql.php";
+
 
 
 	$user = array(
-		'email' => 'nicolas@teste.com.br',
+		'email' => 'admin@teste.com.br',
 		'senha' => '0123456',
 		'name' => 'administrador'
 		);
@@ -17,11 +19,23 @@
 				header('Location: '. $URL_PATH. 'login.php?=error=missing_field');
 			}
 		}
+
 	$login = $_POST['email'];
 	$senha = $_POST['senha'];
+	$sec_senha = sha1('is@be11i' . $senha);
+
+	$sql = "SELECT * FROM usuarios WHERE email = '%s' AND senha = '%s'";
+	$query = sprintf($sql, $login, $sec_senha);
+	$result = mysqli_query($con, $query);
 
 
+
+
+	$row = mysqli_fetch_assoc($result);
+
+	
 	if($login == $user['email'] && $senha ==$user['senha']){
+	//if($row != null){
 		if(!isset($_SESSION)) session_start();
 
 		$_SESSION['email'] = $login;
@@ -37,7 +51,5 @@
 	{
 		header('Location: '. $URL_PATH. 'login.php');
 	}
-
-	
 
 ?>

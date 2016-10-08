@@ -32,7 +32,7 @@
             <form class="form-signin" action="<?= $URL_PATH?>/core/login.php" method="POST">
                 <span id="reauth-email" class="reauth-email"></span>
                 
-                <input type="email"  name="email" id="inputEmail" class="form-control" placeholder="Emai"autofocus>
+                <input type="email"  name="email" id="inputEmail" class="form-control" placeholder="Email"autofocus>
                
                 <input type="password"  name="senha" id="inputPassword" class="form-control" placeholder="Senha">
 

@@ -8,16 +8,16 @@
 		header('Location: '.$URL_PATH.'login.php');
 	}
 
+	$id = htmlspecialchars($_POST['id']);
 	$nome = htmlspecialchars($_POST['nome']);
 	$email= htmlspecialchars($_POST['email']);
 	$senha= htmlspecialchars($_POST['senha']);
 
 	$sec_senha = sha1('is@be11i' . $senha);
 
-	$sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('%s','%s','%s')";
-	$query = sprintf($sql, $nome, $email, $sec_senha);
-	echo $query;
-
+	$sql = "UPDATE usuarios SET nome='%s', email='%s', senha='%s' WHERE id='%s'";
+	$query = sprintf($sql, $nome, $email, $sec_senha, $id);
+	
 	$result = mysqli_query($con, $query);
 	if($result){
 		header('Location: '. $URL_PATH . "index.php" );
