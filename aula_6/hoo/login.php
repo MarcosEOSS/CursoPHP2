@@ -57,11 +57,8 @@
                 Forgot the password?
             
             </a>
-        </di
-        v><!-- /card-container -->
-    </di
-    v><!-- /container -->
-</bo
-dy>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+</body>
 
 </html>
